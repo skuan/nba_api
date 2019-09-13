@@ -29,6 +29,45 @@ print(player_headers[5], player_data[5],
 	player_headers[26], player_data[26],
 	player_headers[27], player_data[27])
 
+#PER Calculation
+factor = (2 / 3) -(0.5 * (lg_AST / lg_FG)) / (2 * (lg_FG / lg_FT)) 
+VOP = lg_PTS / (lg_FGA -lg_ORB + lg_TOV + 0.44 * lg_FTA) 
+DRB_perc = (lg_TRB -lg_ORB) / lg_TRB
+lg_AST = 
+lg_FG = 
+lg_PTS =
+lg_FGA =
+lg_FT = 
+lg_FTA = 
+lg_TRB =
+lg_ORB =
+lg_TOV = 
+#####stats####
+MP = player_data[6]
+ThrP = player_data[10] 
+AST = player_data[19]
+team_AST =  
+team_FG = 
+TOV = player_data[20]
+FGA = player_data[8]
+FG = player_data[7]+player_data[10] 
+FTA = player_data[14]
+FT = player_data[13]
+TRB = player_data[18]
+ORB = player_data[16]
+STL = player_data[21]
+BLK = player_data[22]
+PF = player_data[24]
+
+
+PER_calc_player = (1/MP) * [ThrP + (2/3) * AST + 
+(2-factor * (team_AST/team_FG)) * FG + 
+(FT * 0.5 * (1 + (1 -(team_AST/team_FG)) 
+	+ (2/3) * (team_AST / team_FG))) -VOP * TOV -VOP * DRB_perc * 
+(FGA -FG) -VOP * 0.44 * (0.44 + (0.56 * DRP_perc)) * (FTA -FT) + VOP * 
+(1 -DRB_perc) * (TRB -ORB) + VOP * DRB_perc * ORB + VOP *STL + VOP * DRB_perc * 
+BLK -PF * ((lg_FT / lg_PF) -0.44 * (lg_FTA / lg_PF) * VOP)]
+
 
 # team1_input = input('Enter team 1: ')
 # print(team1_input)

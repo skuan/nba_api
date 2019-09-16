@@ -17,12 +17,13 @@ print(player1_input)
 player1 = players.find_players_by_full_name(player1_input)[0]['id']
 
 player_info = playerdashboardbylastngames.PlayerDashboardByLastNGames(player_id=player1)
-player_headers = player_info.overall_player_dashboard.get_dict().get('headers')
-player_data = player_info.overall_player_dashboard.get_dict().get('data')[0]
+
+#player_headers = player_info.overall_player_dashboard.get_dict().get('headers')
+#player_data = player_info.overall_player_dashboard.get_dict().get('data')[0]
 
 ##last 20 games##
-#player_headers = player_info.last20_player_dashboard.get_dict().get('headers')
-#player_data = player_info.last20_player_dashboard.get_dict().get('data')[0]
+player_headers = player_info.last20_player_dashboard.get_dict().get('headers')
+player_data = player_info.last20_player_dashboard.get_dict().get('data')[0]
 
 print(player_headers[5], player_data[5], 
 	player_headers[2], player_data[2], 
@@ -33,15 +34,19 @@ print(player_headers[5], player_data[5],
 
 team1_input = input('Enter team 1: ')
 print(team1_input)
-
 team1 = teams.find_teams_by_full_name(team1_input)[0]['id']
+teamdashboard = teamdashboardbylastngames.TeamDashboardByLastNGames(team_id=team1)
 
-teamdashboard = teamdashboardbyteamperformance.TeamDashboardByTeamPerformance(team_id=team1)
-team_headers = teamdashboard.overall_team_dashboard.get_dict().get('headers')
-team_data = teamdashboard.overall_team_dashboard.get_dict().get('data')[0]
+#team_headers = teamdashboard.overall_team_dashboard.get_dict().get('headers')
+#team_data = teamdashboard.overall_team_dashboard.get_dict().get('data')[0]
 
-print(team1, 'Season: ', team_data[-1])
-print(team_headers[9], ':', team_data[9])
+##last 20 games##
+team_headers = teamdashboard.last20_team_dashboard.get_dict().get('headers')
+team_data = teamdashboard.last20_team_dashboard.get_dict().get('data')[0]
+
+print(team1, 'Season:', team_data[-1])
+print(team_headers[2], team_data[2], team_headers[3], team_data[3],
+      team_headers[4], team_data[4], team_headers[9], team_data[9])
 
 #PER Data 
 

@@ -12,8 +12,10 @@ driver.get('https://stats.nba.com/search/player-game/#?Season=2018-19&SeasonType
 
 csv_file = open('nbaplayerstats.csv', 'w')
 writer = csv.writer(csv_file)
-writer.writerow(['PLAYER', 'TEAM', 'AGE', 'GP', 'W', 'L', 'MIN', 'PTS', 'FGM', 'FGA', 'FG%', '3PM', '3PA', '3P%', \
-				 'FTM', 'FTA', 'FT%', 'OREB', 'DREB', 'REB', 'AST', 'TOV', 'STL', 'BLK', 'PF', 'DD2', 'TD3', '+/-'])
+writer.writerow(['PLAYER', 'TEAM', 'DATE', 'MATCHUP', 'W/L', 'MIN', 'PTS', 
+	'FGM', 'FGA', 'FG%', '3PM', '3PA', '3P%', 'FTM', 'FTA', 'FT%', 'OREB', 
+	'DREB', 'REB', 'AST', 'STL', 'BLK', 'TOV', 'PF', '+/-'])
+
 while True:
 	try:
 		button = driver.find_element_by_xpath('/html/body/main/div[2]/div/div[2]/div/div/nba-stat-table/div[2]/div/a')
@@ -21,7 +23,7 @@ while True:
 		time.sleep(5)
 	except:
 		break
-plyr = driver.find_elements_by_xpath('/html/body/main/div[2]/div/div[2]/div/div/nba-stat-table/div[1]/div[1]/table/tbody/tr')
+plyr = driver.find_elements_by_xpath('/html/body/div[3]/div[2]/div/div[4]/nba-stat-table/div[1]/div[1]/table/tbody/tr[1]')
 
 links = []
 

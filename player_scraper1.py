@@ -7,7 +7,7 @@ import time
 import csv
 
 driver = webdriver.Chrome()
-driver.get('https://stats.nba.com/search/player-game/#?Season=2018-19&SeasonType=Regular%20Season&sort=GAME_DATE&dir=1&CF=PTS*gt*30')
+driver.get('https://stats.nba.com/search/player-game/#?CF=MINUTES*gt*1&Season=2018-19&sort=GAME_DATE&dir=1&SeasonType=Regular%20Season&DateFrom=10%2F01%2F2018&DateTo=01%2F02%2F2019')
 
 while True:
     try:
@@ -35,7 +35,7 @@ for row in headers:
 
 print(header_list)
 
-csv_file = open('nbaplayerstats.csv', 'w', newline='')
+csv_file = open('nbaplayerstats1.csv', 'w', newline='')
 writer = csv.writer(csv_file)
 writer.writerow(header_list)
 csv_file.close()
@@ -52,7 +52,7 @@ for cell in body_row:
  		t = item.text
  		cell_list_text.append(t)
 
-	with open('nbaplayerstats.csv', 'a', newline='') as f:
+	with open('nbaplayerstats1.csv', 'a', newline='') as f:
  		writer = csv.writer(f)
  		writer.writerow(cell_list_text)
  		csv_file.close()
